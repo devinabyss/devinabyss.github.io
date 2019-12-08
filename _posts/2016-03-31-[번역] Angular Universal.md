@@ -15,19 +15,16 @@ comments: true
 
 ## 문서 정보
 ### GitHub
-- https://github.com/angular/universal
+- [https://github.com/angular/universal](https://github.com/angular/universal)
 
 ### 원문 링크
-- https://goo.gl/6PKzdo
+- [https://goo.gl/6PKzdo](https://goo.gl/6PKzdo)
 
 ### 문서 저자
 - Jeff Whelpley (jeffwhelpley@gmail.com)
 - PatrickJS (patrick@gdi2290.com)
 - Tobias Bosch (tbosch@google.com)
 - Jeff Cross (crossj@google.com)
-
-### 번역문 링크
-- https://goo.gl/6pw38y
 
 ### 참고사항
 - 본 문서는 2014년 최초 작성되기 시작한 것으로 보이며 이후 저자들에 의해 얼마나 업데이트되어 왔는지, 혹은 베타 단계인 지금도 잘 관리되고 있는 것인지 확인이 어렵습니다. 하여 일부 내용이 현재 시점 (2016년) 기준으로 낡은 부분이 존재할 것입니다. (특히 선행 기술 부분) 다만 Angular 2 는 아직 베타 단계에 머물러있으므로 (2016년 3월) Angular 2 의 서버 렌더링을 설명하기 위한 기술 설계 파트 이후의 내용은 베타가 공개됐으나 아직 개발 진행 중인 Angular 2 의 기술 배경을 간단히 파악하기에는 무리가 없을 것으로 보입니다.

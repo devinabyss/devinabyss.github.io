@@ -16,9 +16,9 @@ minimal_mistakes_skin    : "dark" # "air", "aqua", "contrast", "dark", "dirt", "
 
 # Site Settings
 locale                   : "ko-KR"
-title                    : "..."
+title                    : "Developer In Abyss"
 title_separator          : "-"
-subtitle                 : "aaa" # site tagline that appears below site title in masthead
+subtitle                 : "Optional.ofNullable(studying).ifPresent(Blog::write).orElseThrow(() -> new IdiotPleaseDoStudying())" # site tagline that appears below site title in masthead
 name                     : "devh"
 description              : "developer diary"
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
