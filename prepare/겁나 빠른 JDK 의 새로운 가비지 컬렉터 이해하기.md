@@ -1,4 +1,8 @@
-겁나 빠른 JDK 의 새로운 가비지 컬렉터들 이해하기
+원문 :  [Understanding the JDK’s New Superfast Garbage Collectors]( https://cdn.app.compendium.com/uploads/user/e7c690e8-6ff9-102a-ac6d-e4aebca50425/34d3828b-c12e-4c7e-8942-b6b7deb02e12/File/01331a1ea2d4c196a756840f3e712ad1/understanding_the_jdk_s_new_superfast_garbage_collectors.pdf ) - [Oracle Java Magazine](https://blogs.oracle.com/javamagazine)
+
+
+
+# 겁나 빠른 JDK 의 새로운 가비지 컬렉터들 이해하기
 
 
 
@@ -50,4 +54,10 @@ JDK12 에 등장한 저지연의 스페셜리스트, 섀넌도어 GC 는 위 사
 
 우선 어떤 상황에서 섀넌도어가 탁월한지 살펴보고자 한다.  우리는 이 글에서 섀넌도어가 수면 아래 어떤식으로 동작하는지 자세하게 다루지는 않을 것이므로, 좀 더 기술적인 부분에 관심이 있다면 [첨부 기사](https://blogs.oracle.com/javamagazine/the-new-garbage-collectors-in-openjdk)와 [Open JDK 위키의 섀넌도어 페이지]( https://wiki.openjdk.java.net/display/shenandoah/Main#Main-Releases )를 찾아보면 된다.
 
-섀넌도어로 인한 이득을 어
+섀넌도어로 얻을 수 있는 퍼포먼스 향상의 정도는 해당 어플리케이션의 부하량과 자체 특성에 의해 많이 좌우된다. 섀넌도어 팀은 SpecJBB 를 이용한 정지 시간 지연 벤치마크 테스트 결과를 배포한바가 있으며, 그 결과는 표 1과 같다. 이 벤치마크는 일반적인 자바 비즈니스 어플리케이션 수행을 가정하여 진행되기는 했지만, 각자의 어플리케이션에 특성에 따라 차이가 있을 것이다.
+
+이 벤치마크는 JDK9 시절의  G1 지연 시간을 기준으로 수치를 비교한다.  이는 구세대 JDK 로부터 업그레이드를 한다면 섀넌도어로 GC 를 변경함으로 충분히 효과를 얻을 수 있음을 의미한다.  JDK 12 이후의 버전으로 업그레이드를 한다면, G1 역시 그간 쭉 개선되어 왔으므로 상기 표기된 수치보다 좋은 성능을보일 것이다.
+
+섀넌도어가 G1 과 차별되는 핵심 전략은 쓰레드를 활용해 동시에 가비지 컬렉션을 수행함으로 가비지 컬렉션 주기마다 보다 많은 양을 처리하는 것이다.  G1 은 힙 영역 안에서 객체를 이동시키고 제거하는 동작을 오직 어플리케이션의 정지를 통해서만 수행하지만, 섀넌도어는 어플리케이션이 동작하는 것과 동시에 객체의 재할당을 수행한다. 이같은 동시 재할당을 수행하기 위해서 브룩스 포인터 (Brooks Pointer) 란 명칭으로 알려진 방법이 사용된다.  이 포인터는 섀넌도어 힙 영역 내에 각 객체들이 가지는 추가 필드이며, 각 객체가 자신이 돌아갈 곳을 저장한다.
+
+섀넌도어 
